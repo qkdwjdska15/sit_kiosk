@@ -3,6 +3,13 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.project.sit_kiosk.admin.dao.AdminDAO">
 	<select id="adminLogin" parameterType="AdminVO" resultType="AdminVO">
-		select * from sitkiosk_admin where sitkiosk_admin_id = #{admin_id} and sitkiosk_admin_pwd = #{admin_pwd}
+		select * from sitkiosk_admin where admin_id = #{admin_id} and admin_pwd = #{admin_pwd}
 	</select>
+	
+	<update id="adminLoginInfoUpdate" parameterType="AdminVO">
+		update sitkiosk_admin set last_access_date = sysdate, last_access_ip = #{last_access_ip}
+		<where>
+			admin_id = #{admin_id} and admin_pwd = #{admin_pwd}
+		</where>
+	</update>
 </mapper>

@@ -8,10 +8,12 @@ import lombok.ToString;
 
 @Getter
 @Setter
-@ToString
-@AllArgsConstructor
 @RequiredArgsConstructor
+@AllArgsConstructor
+@ToString
 public class AdminVO {
 	private String admin_id;
 	private String admin_pwd;
+	private String last_access_date;
+	private String last_access_ip;
 }

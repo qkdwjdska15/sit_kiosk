@@ -12,18 +12,22 @@ import lombok.extern.log4j.Log4j;
 
 @Log4j
 @Service
-@RequiredArgsConstructor
 @ToString
 public class AdminServiceImple implements AdminService {
 	
-	
-	private final AdminDAO aDao;
-	
+	@Autowired
+	private AdminDAO aDao;
 	
 	@Override
 	public AdminVO adminLogin(AdminVO avo) {
 		log.info("adminLogin..." + avo);
 		return aDao.adminLogin(avo);
+	}
+
+	@Override
+	public boolean adminLoginInfoUpdate(AdminVO avo) {
+		log.info("adminLoginInfoUpdate..." + avo);
+		return aDao.adminLoginInfoUpdate(avo) == 1;
 	}
 
 }

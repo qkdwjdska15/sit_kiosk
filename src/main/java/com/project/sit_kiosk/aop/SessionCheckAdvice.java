@@ -11,6 +11,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.project.sit_kiosk.admin.vo.AdminVO;
+
 import lombok.extern.log4j.Log4j;
 
 @Aspect
@@ -34,9 +36,10 @@ public class SessionCheckAdvice {
 		if (request != null) {
 			// 세션체킹
 			HttpSession session = request.getSession();
-			String login = (String) session.getAttribute("adminLoginResult");
+			AdminVO login = (AdminVO) session.getAttribute("adminInfo");
 			if (login == null || "".equals(login)) {
 				log.info("로그인 세션 없음");
+				log.info(login);
 				return "admin/login";
 			}
 		} // request가 null이 아니라면

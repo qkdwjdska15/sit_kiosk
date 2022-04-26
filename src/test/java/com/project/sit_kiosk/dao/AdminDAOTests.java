@@ -21,7 +21,9 @@ public class AdminDAOTests {
 	
 	@Test
 	public void testAdminLogin() {
-		AdminVO avo = new AdminVO("adminID" , "adminPWD");
-		System.out.println(dao.adminLogin(avo));
+		AdminVO avo = new AdminVO();
+		avo.setAdmin_id("adminID");
+		avo.setAdmin_pwd("adminPWD");
+		log.info(dao.adminLogin(avo));
 	}
 }

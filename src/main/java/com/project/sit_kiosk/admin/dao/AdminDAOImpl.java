@@ -17,4 +17,9 @@ public class AdminDAOImpl implements AdminDAO {
 		return session.selectOne("adminLogin" , avo);
 	}
 
+	@Override
+	public int adminLoginInfoUpdate(AdminVO avo) {
+		return session.update("adminLoginInfoUpdate" , avo);
+	}
+
 }
