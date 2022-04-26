@@ -4,5 +4,6 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
+		<typeAlias type="com.project.sit_kiosk.admin.vo.AdminVO" alias="AdminVO"/>
 	</typeAliases>
 </configuration>

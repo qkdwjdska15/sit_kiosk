@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.project.sit_kiosk.admin.service.AdminService;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -17,10 +18,10 @@ import lombok.extern.log4j.Log4j;
 @RequestMapping("/admin/")
 @AllArgsConstructor
 public class AdminController {
-	//private AdminService adminService;
+	private AdminService adminService;
 	
 	@GetMapping("/login")
-	public void adminLogin(HttpSession session, Model model, HttpServletRequest request) {
+	public void adminLogin(HttpSession session, HttpServletRequest request) {
 		log.info("adminLogin 호출");
 		session.setAttribute("adminLoginResult", "test");
 	}
