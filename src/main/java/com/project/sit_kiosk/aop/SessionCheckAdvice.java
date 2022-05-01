@@ -26,7 +26,6 @@ public class SessionCheckAdvice {
 	public Object sitKioskAdminSessionCheck(ProceedingJoinPoint joinPoint) throws Throwable {
 		HttpServletRequest request = null;
 		Object result = null;
-		ModelAndView mav = new ModelAndView();
 		for (Object o : joinPoint.getArgs()) {
 			if (o instanceof HttpServletRequest) {
 				request = (HttpServletRequest) o;
