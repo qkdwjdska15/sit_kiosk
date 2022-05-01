@@ -27,7 +27,7 @@ public class AdminManagementController {
 	@GetMapping("/branchInfo")
 	public String branchInfo_Chk(HttpServletRequest request, HttpSession session, Model model) {
 		log.info("branchInfo");
-		model.addAttribute("brnachList" , service.getAllBranchInfo());
+		model.addAttribute("branchList" , service.getAllBranchInfo());
 		return "admin/management/branchInfo";
 	}
 }
