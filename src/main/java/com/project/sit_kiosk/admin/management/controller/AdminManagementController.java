@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.project.sit_kiosk.admin.management.service.BranchManagementService;
+import com.project.sit_kiosk.paging.Criteria;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -25,9 +26,9 @@ public class AdminManagementController {
 	
 	
 	@GetMapping("/branchInfo")
-	public String branchInfo_Chk(HttpServletRequest request, HttpSession session, Model model) {
-		log.info("branchInfo");
-		model.addAttribute("branchList" , service.getAllBranchInfo());
+	public String branchInfo_Chk(HttpServletRequest request, HttpSession session, Criteria cri, Model model) {
+		log.info("branchInfo : " + cri);
+		model.addAttribute("branchList" , service.getAllBranchInfo(cri));
 		return "admin/management/branchInfo";
 	}
 }
