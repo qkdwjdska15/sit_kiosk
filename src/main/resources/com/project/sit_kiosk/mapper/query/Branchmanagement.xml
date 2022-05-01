@@ -6,4 +6,18 @@
 		select /*+ INDEX_DESC(sitkiosk_branchManager sitkiosk_branchManager_no_pk) */ *
 		from sitkiosk_branchManager
 	</select>
+	
+	<select id="getBranchInfoWithPaging" resultType="BranchVO">
+		<![CDATA[
+		select * 
+		from(
+			select /*+ INDEX_DESC(sitkiosk_branchManager sitkiosk_branchManager_no_pk) */
+				rownum rn, branchManager_no, branchManager_id, branchManager_pwd, branchManager_email, 
+				branchManager_phone, branchManager_since, branchManager_access_date, branchManager_status 
+			from
+				sitkiosk_branchManager
+			where rownum < = #{pageNum} * #{amount}
+		) where rn > (#{pageNum} -1) * #{amount}
+		]]>
+	</select>
 </mapper>

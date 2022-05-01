@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.project.sit_kiosk.branch.vo.BranchVO;
+import com.project.sit_kiosk.paging.Criteria;
 
 @Repository
 public class BranchManagementDAOImpl implements BranchManagementDAO {
@@ -17,6 +18,11 @@ public class BranchManagementDAOImpl implements BranchManagementDAO {
 	@Override
 	public List<BranchVO> getAllBranchInfo() {
 		return session.selectList("getAllBranchInfo");
+	}
+
+	@Override
+	public List<BranchVO> getBranchInfoWithPaging(Criteria cri) {
+		return session.selectList("getBranchInfoWithPaging", cri);
 	}
 
 }
